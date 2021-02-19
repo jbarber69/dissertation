@@ -1,1 +1,0 @@
-{"version":3,"sources":["./src/styles.css"],"names":[],"mappings":"AACA,KACE,wBACF","file":"styles.c73f4045a3d1f44c19be.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody{\n  background-color: #DBDBDB;\n}\n"],"sourceRoot":"webpack:///"}
