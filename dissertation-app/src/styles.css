@@ -1,4 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-  background-color: #DBDBDB;
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #DBDBDB;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
 }
