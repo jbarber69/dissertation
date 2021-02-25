@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-
-import { englishWords, italianWords } from '../../assets/words';
-import { NameService } from '../name.service';
-import { ScoreService } from '../score.service';
+import { Component, OnInit } from "@angular/core";
+import { NameService } from "../name.service";
+import { italianWords, englishWords } from "../../assets/words";
+import { ScoreService } from "../score.service";
+import { FormControl, FormGroup } from "@angular/forms";
+import { map, tap } from "rxjs/operators";
+import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-translation",
@@ -15,7 +14,7 @@ import { ScoreService } from '../score.service';
 export class TranslationComponent implements OnInit {
   constructor(
     private nameService: NameService,
-    private scoreService: ScoreService,
+    private scoreService: ScoreService
   ) {}
 
   ngOnInit(): void {}
@@ -30,11 +29,10 @@ export class TranslationComponent implements OnInit {
 
   getRandomWord(array: string[]) {
     let randomNum = Math.floor(Math.random() * array.length);
-    if(array.length === 0){
-      return of('No words left!')
-    }
-    else{
-    return of(array[randomNum]);
+    if (array.length === 0) {
+      return of("No words left!");
+    } else {
+      return of(array[randomNum]);
     }
   }
 
@@ -44,6 +42,7 @@ export class TranslationComponent implements OnInit {
       const index = englishWords.indexOf(this.translationForm.value.english, 0);
       if (index > -1) {
         italianWords.splice(index, 1);
+        englishWords.splice(index, 1);
       }
       return true;
     }
@@ -54,20 +53,22 @@ export class TranslationComponent implements OnInit {
 
   word$ = this.getRandomWord(italianWords);
 
-  checkWord$
+  checkWord$;
 
   get name(): string {
     return this.nameService.name;
   }
 
   onSubmit() {
-    this.checkWord$ = this.word$.pipe(
-    tap((word) => {
-      console.log(word)
-      if (this.checkCorrect(word) === true) {
-        this.scoreService.score += 1;
-      }
-    })).subscribe()
+    this.checkWord$ = this.word$
+      .pipe(
+        tap((word) => {
+          if (this.checkCorrect(word) === true) {
+            this.scoreService.score += 1;
+          }
+        })
+      )
+      .subscribe();
 
     this.word$ = this.getRandomWord(italianWords);
     console.log(italianWords);

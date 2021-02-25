@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 
-import { NameService } from '../name.service';
+import { NameService } from "../name.service";
 
 @Component({
   selector: "app-homescreen",
@@ -20,6 +20,6 @@ export class HomescreenComponent implements OnInit {
 
   onSubmit() {
     this.nameService.name = this.nameForm.value.name;
-    this.router.navigate(['/translation-component'])
+    this.router.navigate(["/translation-component"]);
   }
 }
