@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms'
-import  {Router} from '@angular/router'
-import {NameService} from '../name.service'
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { NameService } from '../name.service';
 
 @Component({
   selector: "app-homescreen",
@@ -18,9 +19,7 @@ export class HomescreenComponent implements OnInit {
   });
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.nameForm.value);
-    this.nameService.name = this.nameForm.value.name
+    this.nameService.name = this.nameForm.value.name;
     this.router.navigate(['/translation-component'])
   }
 }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {HomescreenComponent} from './homescreen/homescreen.component'
-import {TranslationComponent} from './translation/translation.component'
+import { RouterModule, Routes } from '@angular/router';
+
+import { HomescreenComponent } from './homescreen/homescreen.component';
+import { TranslationComponent } from './translation/translation.component';
 
 
 const routes: Routes = [
