@@ -1,19 +1,27 @@
 <body>
-  <ng-container *ngIf="{ word: word$ | async }; let state">
-    <h1>{{ state.word }}</h1>
+  <div class="mainScreen">
+    <div class="translation">
+      <ng-container *ngIf="{ word: word$ | async }; let state">
+        <h1>{{ state.word }}</h1>
 
-    <form
-      [formGroup]="translationForm"
-      (ngSubmit)="onSubmit(); translationForm.reset()"
-    >
-      <label>
-        Translation:
-        <input type="text" formControlName="english" />
-      </label>
+        <form
+          [formGroup]="translationForm"
+          (ngSubmit)="onSubmit(); translationForm.reset()"
+        >
+          <label>
+            Translation:
+            <input type="text" formControlName="english" />
+          </label>
 
-      <button type="submit">Submit</button>
-    </form>
+          <button type="submit">Submit</button>
+        </form>
 
-    <h1>Score: {{ score }}</h1>
-  </ng-container>
+        <h1>Score: {{ score }}</h1>
+      </ng-container>
+    </div>
+
+    <div class="leaderboard">
+      <app-leaderboard></app-leaderboard>
+    </div>
+  </div>
 </body>

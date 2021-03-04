@@ -5,6 +5,7 @@ import { ScoreService } from "../score.service";
 import { FormControl, FormGroup } from "@angular/forms";
 import { map, tap } from "rxjs/operators";
 import { Observable, of } from "rxjs";
+import {UserService} from '../user.service'
 
 @Component({
   selector: "app-translation",
@@ -14,7 +15,8 @@ import { Observable, of } from "rxjs";
 export class TranslationComponent implements OnInit {
   constructor(
     private nameService: NameService,
-    private scoreService: ScoreService
+    private scoreService: ScoreService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {}
@@ -24,7 +26,7 @@ export class TranslationComponent implements OnInit {
   });
 
   get score(): number {
-    return this.scoreService.score;
+    return this.userService.getScore();
   }
 
   getRandomWord(array: string[]) {
@@ -64,7 +66,7 @@ export class TranslationComponent implements OnInit {
       .pipe(
         tap((word) => {
           if (this.checkCorrect(word) === true) {
-            this.scoreService.score += 1;
+            this.userService.addScore();
           }
         })
       )
