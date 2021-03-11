@@ -6,6 +6,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { map, take, takeWhile, tap } from "rxjs/operators";
 import { interval, Observable, of, timer } from "rxjs";
 import { UserService } from "../user.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-translation",
@@ -16,7 +17,8 @@ export class TranslationComponent {
   constructor(
     private nameService: NameService,
     private scoreService: ScoreService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   wrong: boolean = false;
@@ -62,12 +64,15 @@ export class TranslationComponent {
 
   timer$ = timer(0, 1000).pipe(
     take(this.seconds),
-    map(() => {if(this.seconds === 1){
-      this.translationForm.disable();
-      this.disableButton = true;
-    }
-    console.log(this.seconds)
-      return --this.seconds * 1000})
+    map(() => {
+      if (this.seconds === 1) {
+        this.translationForm.disable();
+        this.disableButton = true;
+        this.router.navigate(["/scoreboard"]);
+      }
+      console.log(this.seconds);
+      return --this.seconds * 1000;
+    })
   );
 
   get name(): string {

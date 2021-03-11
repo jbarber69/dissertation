@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslationComponent } from './translation/translation.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component'
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component'
 
 @NgModule({
-  declarations: [AppComponent, HomescreenComponent, TranslationComponent, LeaderboardComponent],
+  declarations: [AppComponent, HomescreenComponent, TranslationComponent, LeaderboardComponent, ScoreboardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

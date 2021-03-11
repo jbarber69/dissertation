@@ -22,6 +22,6 @@ export class HomescreenComponent implements OnInit {
   onSubmit() {
     this.nameService.name = this.nameForm.value.name;
     this.userService.setName(this.nameForm.value.name)
-    this.router.navigate(["/translation-component"]);
+    this.router.navigate(["/translation"]);
   }
 }
