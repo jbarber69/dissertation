@@ -1,7 +1,9 @@
 <body>
   <div class="mainScreen">
     <div class="translation">
-      <ng-container *ngIf="{ word: word$ | async }; let state">
+      <ng-container
+        *ngIf="{ word: word$ | async, timer: timer$ | async }; let state"
+      >
         <h1>{{ state.word }}</h1>
 
         <form
@@ -13,11 +15,17 @@
             <input type="text" formControlName="english" />
           </label>
 
-          <button type="submit">Submit</button>
+          <button type="submit" [disabled] = "disableButton">Submit</button>
         </form>
 
         <h1>Score: {{ score }}</h1>
+        <h1>{{ state.timer | date: "mm:ss" }}</h1>
       </ng-container>
+
+      <div *ngIf="wrong === true">
+        <h2>Translation wrong, try another!</h2>
+        <h2>The correct translation was: {{ correctWord }}</h2>
+      </div>
     </div>
 
     <div class="leaderboard">
