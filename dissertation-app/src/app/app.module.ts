@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslationComponent } from './translation/translation.component'
+import { TranslationComponent } from './translation/translation.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component'
 
 @NgModule({
-  declarations: [AppComponent, HomescreenComponent, TranslationComponent],
+  declarations: [AppComponent, HomescreenComponent, TranslationComponent, LeaderboardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

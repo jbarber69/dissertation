@@ -6,3 +6,27 @@ body {
   display: flex;
   align-items: center;
 }
+
+.mainScreen{
+        display: flex;
+        justify-content: flex-start;
+        /* adjustment */
+        position: relative;
+        /* new */
+        width: 500px;
+}
+
+.translation{
+        flex: 0 1 auto;
+        width: 300px;
+        position: absolute;
+        /* new */
+        left: 50%;
+        transform: translateX(-50%);
+}
+
+.leaderboard{
+        flex: 0 1 auto;
+        width: 1px;
+        margin-left: auto;
+}
