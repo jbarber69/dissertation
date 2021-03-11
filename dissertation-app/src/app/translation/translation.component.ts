@@ -12,18 +12,17 @@ import { UserService } from "../user.service";
   templateUrl: "./translation.component.html",
   styleUrls: ["./translation.component.css"],
 })
-export class TranslationComponent implements OnInit {
+export class TranslationComponent {
   constructor(
     private nameService: NameService,
     private scoreService: ScoreService,
     private userService: UserService
   ) {}
 
-  ngOnInit(): void {}
-
   wrong: boolean = false;
   correctWord: string;
   seconds: number = 300;
+  disableButton: boolean = false;
 
   translationForm = new FormGroup({
     english: new FormControl(""),
@@ -63,7 +62,12 @@ export class TranslationComponent implements OnInit {
 
   timer$ = timer(0, 1000).pipe(
     take(this.seconds),
-    map(() => --this.seconds * 1000)
+    map(() => {if(this.seconds === 1){
+      this.translationForm.disable();
+      this.disableButton = true;
+    }
+    console.log(this.seconds)
+      return --this.seconds * 1000})
   );
 
   get name(): string {
