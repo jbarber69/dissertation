@@ -2,10 +2,9 @@
   <form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
     <label>
       Name:
-      <input type="text" formControlName="name" />
     </label>
-
-    <button type="submit">Submit</button>
+      <input type="text" formControlName="name" placeholder="Enter Name"/>
+    <!-- <button type="submit">Submit</button> -->
   </form>
 
   <router-outlet></router-outlet>

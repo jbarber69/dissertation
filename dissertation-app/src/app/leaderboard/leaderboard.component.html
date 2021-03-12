@@ -1,9 +1,26 @@
 <ng-container *ngIf="{ sortedUserList: sortedUserList$ | async }; let state">
-  <div *ngFor="let user of state.sortedUserList | slice:0:10; let i=index;">
-    <div class="leaderboardItem">
-      <h1>{{i + 1}}.</h1>
+  <!-- <div *ngFor="let user of state.sortedUserList | slice:0:10; let i=index;"> -->
+  <div class="leaderboardItem">
+    <!-- <h1>{{i + 1}}.</h1>
       <h1>{{ user.name }}</h1>
-      <h1>{{ user.score }}</h1>
-    </div>
+      <h1>{{ user.score }}</h1> -->
+    <table>
+      <tbody>
+        <tr
+          *ngFor="let user of state.sortedUserList | slice: 0:10; let i = index"
+        >
+          <td>
+            <h1>{{ i + 1 }}.</h1>
+          </td>
+          <td>
+            <h1>{{ user.name }}</h1>
+          </td>
+          <td>
+            <h1>{{ user.score }}</h1>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <!-- </div> -->
 </ng-container>
