@@ -1,30 +1,33 @@
 <body>
   <div class="mainScreen">
+    <div class="left"></div>
     <div class="translation">
       <ng-container
         *ngIf="{ word: word$ | async, timer: timer$ | async }; let state"
       >
-        <h1>{{ state.word }}</h1>
+        <div class="timer">
+          <h2>Time Remaining:</h2>
+          <h2 class="time">{{ state.timer | date: "mm:ss" }}</h2>
+        </div>
+
+        <div class="input">
+        <h1 class="italian">{{ state.word }}</h1>
 
         <form
           [formGroup]="translationForm"
           (ngSubmit)="onSubmit(); translationForm.reset()"
         >
-          <label>
-            Translation:
-            <input type="text" formControlName="english" />
-          </label>
-
-          <button type="submit" [disabled] = "disableButton">Submit</button>
+          <input type="text" formControlName="english" placeholder="Enter Translation"/>
         </form>
+        </div>
 
-        <h1>Score: {{ score }}</h1>
-        <h1>{{ state.timer | date: "mm:ss" }}</h1>
       </ng-container>
 
+       <h1>Score: {{ score }}</h1>
+
       <div *ngIf="wrong === true">
-        <h2>Translation wrong, try another!</h2>
-        <h2>The correct translation was: {{ correctWord }}</h2>
+        <h2 class="correction">Translation wrong, try another!</h2>
+        <h2 class="correction">The correct translation was: {{ correctWord }}</h2>
       </div>
     </div>
 
