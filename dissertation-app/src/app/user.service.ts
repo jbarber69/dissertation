@@ -30,22 +30,6 @@ export class UserService {
     return this.user
   }
 
-  // generateLeaderboard(){
-  //       let users = [...dummyUsers, this.user];
-  //       users.sort((user1, user2) => (user1.score > user2.score ? -1 : 1));
-  //       return users
-  // }
-
-  // getLeaderboard(){
-  //   return this.liveLeaderboard
-  // }
-
-  // getSortedUserList(){
-  //   let users = [...dummyUsers, this.user]
-  //   users.sort((user1, user2) => user1.score > user2.score ? -1 : 1)
-  //   return of(users)
-  // }
-
   getScore(){
     return this.user.score
   }
