@@ -54,6 +54,16 @@ export class UserService {
       totalScore += competitors[i].score
     }
 
+    totalScore += this.user.score
+
     return Math.round(totalScore/competitors.length)
+  }
+
+  changeScore(){
+    const player = Math.round(Math.random() * (competitors.length-1))
+    if(competitors[player].score < 42){
+          competitors[player].score += 1;
+
+    }
   }
 }

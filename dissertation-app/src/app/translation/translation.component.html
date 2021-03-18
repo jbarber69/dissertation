@@ -3,7 +3,7 @@
     <div class="left"></div>
     <div class="translation">
       <ng-container
-        *ngIf="{ word: word$ | async, timer: timer$ | async }; let state"
+        *ngIf="{ word: word$ | async, timer: timer$ | async, scoreChanger : scoreChanger$ | async }; let state"
       >
         <div class="timer">
           <h2>Time Remaining:</h2>
