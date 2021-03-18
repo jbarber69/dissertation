@@ -53,6 +53,7 @@ export class TranslationComponent {
     }
     if (englishWord === englishWords[italianIndex]) {
       const index = englishWords.indexOf(this.translationForm.value.english, 0);
+      console.log(index)
       if (index > -1) {
         italianWords.splice(index, 1);
         englishWords.splice(index, 1);
@@ -68,9 +69,17 @@ export class TranslationComponent {
 
   checkWord$;
 
+  scoreChanger$ = timer(0, 5000).pipe(
+    take(this.seconds),
+    tap(() => {
+      this.userService.changeScore();
+    })
+  )
+
   timer$ = timer(0, 1000).pipe(
     take(this.seconds),
     map(() => {
+                  // this.userService.changeScore();
       if (this.seconds === 1) {
         this.translationForm.disable();
         this.disableButton = true;
