@@ -17,7 +17,7 @@ body {
 
 .translation {
   flex: 0 1 auto;
-  width: 300px;
+  width: 320px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -26,7 +26,7 @@ body {
 .leaderboard {
   flex: 0 1 auto;
   width: 1px;
-  margin-left: 40em;
+  margin-left: 35em;
 }
 
 h2 {
@@ -35,6 +35,7 @@ h2 {
 
 .timer {
   display: flex;
+  justify-content: center;
 }
 
 .time {
@@ -76,4 +77,12 @@ form {
 .correction {
   font-family: Helvetica;
   font-weight: lighter;
+}
+
+.score{
+  display: flex;
+}
+
+.average{
+  margin-inline-start: 0.7em;
 }
