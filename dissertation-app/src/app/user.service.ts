@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 interface User {
   name: string;
   score: number;
+  player?: boolean
 }
 
     const competitors: User[] = [
@@ -24,6 +25,7 @@ export class UserService {
   user: User = {
     name: "Jack",
     score: 0,
+    player:true
   };
 
   constructor() {}
