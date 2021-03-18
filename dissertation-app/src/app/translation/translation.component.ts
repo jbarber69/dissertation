@@ -37,7 +37,8 @@ export class TranslationComponent {
   getRandomWord(array: string[]) {
     let randomNum = Math.floor(Math.random() * array.length);
     if (array.length === 0) {
-      return of("No words left!");
+      this.router.navigate(["/scoreboard"]);
+      console.info('Well done!')
     } else {
       return of(array[randomNum]);
     }
@@ -53,7 +54,6 @@ export class TranslationComponent {
     }
     if (englishWord === englishWords[italianIndex]) {
       const index = englishWords.indexOf(this.translationForm.value.english, 0);
-      console.log(index)
       if (index > -1) {
         italianWords.splice(index, 1);
         englishWords.splice(index, 1);
@@ -79,7 +79,6 @@ export class TranslationComponent {
   timer$ = timer(0, 1000).pipe(
     take(this.seconds),
     map(() => {
-                  // this.userService.changeScore();
       if (this.seconds === 1) {
         this.translationForm.disable();
         this.disableButton = true;
