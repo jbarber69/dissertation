@@ -1,45 +1,59 @@
 import { Injectable } from "@angular/core";
-import { interval, of } from "rxjs";
-import { map } from "rxjs/operators";
 
 interface User {
-  name: string,
-  score: number
+  name: string;
+  score: number;
 }
 
-const dummyUsers = [
-  { name: "John", score: 2 },
-  { name: "Liam", score: 3 },
-  { name: "Olivia", score: 5 },
-  { name: "Emma", score: 4 },
-];
-
+    const competitors: User[] = [
+      { name: "John", score: 17 },
+      { name: "Liam", score: 29 },
+      { name: "Olivia", score: 42 },
+      { name: "Emma", score: 36 },
+      { name: "Oliver", score: 15 },
+      { name: "Ava", score: 24 },
+      { name: "Noah", score: 20 },
+      { name: "Alex", score: 30 },
+      { name: "William", score: 31 },
+      { name: "Isabella", score: 45 },
+    ];
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
   user: User = {
-    name: 'Jack',
-    score: 0
+    name: "Jack",
+    score: 0,
+  };
+
+  constructor() {}
+
+  getUser() {
+    return this.user;
   }
 
-  constructor(){
+  getScore() {
+    return this.user.score;
   }
 
-  getUser(){
-    return this.user
+  setName(name: string) {
+    this.user.name = name;
   }
 
-  getScore(){
-    return this.user.score
+  addScore() {
+    this.user.score += 1;
   }
 
-  setName(name: string){
-    this.user.name = name
+  getCompetitors() {
+    return competitors;
   }
 
-  addScore(){
-    this.user.score += 1
-  }
+  getAverageScore(){
+    let totalScore = 0
+    for(let i = 0; i<competitors.length; i++){
+      totalScore += competitors[i].score
+    }
 
+    return Math.round(totalScore/competitors.length)
+  }
 }

@@ -23,7 +23,10 @@
 
       </ng-container>
 
+      <div class="score">
        <h1>Score: {{ score }}</h1>
+       <h1 class = "average">Average: {{average}}</h1>
+       </div>
 
       <div *ngIf="wrong === true">
         <h2 class="correction">Translation wrong, try another!</h2>
