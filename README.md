@@ -17,14 +17,6 @@ Once this is complete, the project can be ran using the command: npm run start
 
 ============================
 
-The project will start on the branch containing the code for the leaderboard
-
-To view the non-leaderboard version simply checkout the relevant branch using the command: git checkout non-leaderboard, and then use npm run start to run the project
-
-To switch back use the command: git checkout develop
-
-============================
-
 If you have any difficulties running this code, please contact me at: jb2716@bath.ac.uk
 
 Alternatively, the project can be viewed online at: https://jnbarber.co.uk/dissertation
