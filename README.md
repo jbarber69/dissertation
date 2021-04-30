@@ -9,7 +9,7 @@ Angular can be installed from your command line using the command: npm install -
 
 ============================
 
-Once both of these have been installed, navigate to the folder /code/dissertation-app in your command line
+Once both of these have been installed, navigate to the folder /dissertation-app in your command line
 
 From there, install all the required packages using the command: npm install
 
